@@ -1,6 +1,8 @@
 import styles from './styles.module.css'
 import logo from '@/assets/logo.svg'
+import CartIcon from '@/assets/shopping-cart.svg'
 import { Image } from '@/components'
+import { useShop } from '@/hooks'
 import { useRouter } from 'next/router'
 
 type MenuItemProps = {
@@ -14,8 +16,8 @@ const menuItems: MenuItemProps[] = [
     label: 'Home'
   },
   {
-    path: '/cart',
-    label: 'Carrinho'
+    path: '/about',
+    label: 'Sobre'
   }
 ]
 
@@ -25,11 +27,16 @@ const {
   shopping_logo,
   menu,
   menu_items,
-  menu_item
+  menu_item,
+  cart_badge
 } = styles
 
 export function Header() {
   const router = useRouter()
+  const {
+    state: { cart }
+  } = useShop()
+  const cartLength = cart.length
 
   const handleGoToPath = (path: string) => () => {
     router.push(path)
@@ -38,9 +45,11 @@ export function Header() {
   return (
     <header className={main_container}>
       <section className={container}>
-        <div className={shopping_logo}>
-          <Image src={logo} alt="Shopping Cart Basket Logo" />
-        </div>
+        <Image
+          src={logo}
+          alt="Shopping Cart Basket Logo"
+          className={shopping_logo}
+        />
 
         <nav className={menu}>
           <ul className={menu_items}>
@@ -51,6 +60,13 @@ export function Header() {
                 </button>
               </li>
             ))}
+
+            <button onClick={handleGoToPath('/cart')}>
+              <div className={menu_item} style={{ position: 'relative' }}>
+                <Image src={CartIcon} alt="cart icon" width={40} height={40} />
+                <div className={cart_badge}>{cartLength}</div>
+              </div>
+            </button>
           </ul>
         </nav>
       </section>
