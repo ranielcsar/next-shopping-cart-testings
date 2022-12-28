@@ -1,0 +1,48 @@
+.main_container {
+  width: 100%;
+  background: var(--black);
+  position: sticky;
+  color: var(--white);
+  padding: 10px 0;
+  top: 0;
+  z-index: 999;
+}
+
+.container {
+  width: var(--width);
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shopping_logo {
+  width: 40px;
+  height: 40px;
+}
+
+.menu {
+  width: 20%;
+}
+
+.menu_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.menu_item {
+  list-style: none;
+}
+
+.menu_item>button {
+  color: var(--white);
+  font-size: 1.25rem;
+  transition: background, 0.15s;
+}
+
+.menu_item>button:hover {
+  color: var(--accent);
+  font-size: 1.25rem;
+}
