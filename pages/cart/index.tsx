@@ -1,5 +1,17 @@
+import { ProductList } from '@/components'
+import { useShop } from '@/hooks'
 import { MainTemplate } from '@/templates'
 
 export default function Cart() {
-  return <MainTemplate title="Carrinho">carrin</MainTemplate>
+  const { state } = useShop()
+
+  const { cart } = state
+
+  console.log({ cart })
+
+  return (
+    <MainTemplate title="Carrinho">
+      <ProductList products={cart} />
+    </MainTemplate>
+  )
 }
