@@ -6,6 +6,7 @@ import { convertToMonetaryValue } from '@/utils'
 
 export type ProductCardProps = {
   product: T_Product
+  onAddClick(): void
 }
 
 const {
@@ -16,18 +17,19 @@ const {
   price_text,
   price,
   add_button,
-  add_button_div,
   add_button_label
 } = styles
 
-export function ProductCard({ product }: ProductCardProps) {
-  const handleOnAddButton = () => console.log(`${product.name} no carrinho`)
-
+export function ProductCard({ product, onAddClick }: ProductCardProps) {
   return (
-    <div className={container} key={product.id}>
-      <picture className={image}>
-        <img src={product.imageUrl} alt={`Image of ${product.name}`} />
-      </picture>
+    <div className={container}>
+      <Image
+        src={product.imageUrl}
+        alt={`Image of ${product.name}`}
+        className={image}
+        width={100}
+        height={100}
+      />
 
       <section className={infos}>
         <h1 className={title}>{product.name}</h1>
@@ -35,11 +37,9 @@ export function ProductCard({ product }: ProductCardProps) {
         <span className={price}>{convertToMonetaryValue(product.price)}</span>
       </section>
 
-      <button className={add_button} onClick={handleOnAddButton}>
-        <div className={add_button_div}>
-          <p className={add_button_label}>Adicionar</p>
-          <Image src={CartIcon} alt="cart icon" width={30} />
-        </div>
+      <button className={add_button} onClick={onAddClick}>
+        <span className={add_button_label}>Adicionar</span>
+        <Image src={CartIcon} alt="cart icon" width={30} height={30} />
       </button>
     </div>
   )

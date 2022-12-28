@@ -17,16 +17,11 @@
 .image {
   width: 100%;
   background-color: var(--gray);
-  height: 240px;
-}
-
-.image img {
-  height: 100%;
-  width: 100%;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  height: 15rem;
   object-fit: cover;
   object-position: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .infos {
@@ -52,7 +47,10 @@
   background-color: var(--accent);
   color: var(--white);
   padding: 16px 30px;
-  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
   border-radius: 6px;
   font-size: 1rem;
   transition: background, 0.15s;
