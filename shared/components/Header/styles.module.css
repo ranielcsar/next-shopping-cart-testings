@@ -23,7 +23,8 @@
 }
 
 .menu {
-  width: 20%;
+  width: 15%;
+  align-items: center;
 }
 
 .menu_items {
@@ -34,15 +35,37 @@
 
 .menu_item {
   list-style: none;
+  width: auto;
+  height: auto;
 }
 
 .menu_item>button {
   color: var(--white);
   font-size: 1.25rem;
   transition: background, 0.15s;
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;
 }
 
 .menu_item>button:hover {
   color: var(--accent);
   font-size: 1.25rem;
+}
+
+.cart_badge {
+  background: var(--accent);
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 25px;
+  min-height: 15px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 50%;
 }
