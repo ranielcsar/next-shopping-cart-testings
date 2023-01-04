@@ -16,7 +16,7 @@ export type ShopStateProps = {
 
 export type ShopActionProps = {
   type: ShopActions
-  payload: T_ProductOnCart | { id: T_ProductID }
+  payload: T_ProductOnCart
 }
 
 export type ShopContextProps = {
@@ -38,7 +38,6 @@ const products: T_Product[] = Array.from({ length: 15 }, (_, index: number) => {
 })
 
 export const initialShopState = {
-  id: null,
   cart: [] as unknown as T_ProductOnCart[],
   products
 }
