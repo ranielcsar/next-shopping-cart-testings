@@ -2,7 +2,7 @@ import { ShopContext } from '@/contexts'
 import { useContext } from 'react'
 
 export function useShop() {
-  const shop = useContext(ShopContext)
+  const { state, dispatch } = useContext(ShopContext)
 
-  return shop
+  return { ...state, dispatch }
 }
