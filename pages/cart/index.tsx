@@ -3,11 +3,7 @@ import { useShop } from '@/hooks'
 import { MainTemplate } from '@/templates'
 
 export default function Cart() {
-  const { state } = useShop()
-
-  const { cart } = state
-
-  console.log({ cart })
+  const { cart } = useShop()
 
   return (
     <MainTemplate title="Carrinho">
