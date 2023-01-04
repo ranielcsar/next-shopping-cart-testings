@@ -5,7 +5,7 @@ import { createContext, Dispatch, PropsWithChildren, useReducer } from 'react'
 
 export type T_ProductID = T_Product['id']
 
-type T_ProductOnCart = {
+export type T_ProductOnCart = {
   quantity: number
 } & T_Product
 
