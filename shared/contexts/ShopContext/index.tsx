@@ -3,6 +3,8 @@ import { ShopActions } from '@/reducers/shop-reducer'
 import { T_Product } from '@/types'
 import { createContext, Dispatch, PropsWithChildren, useReducer } from 'react'
 
+export type T_ProductID = T_Product['id']
+
 type T_ProductOnCart = {
   quantity: number
 } & T_Product
@@ -14,7 +16,7 @@ export type ShopStateProps = {
 
 export type ShopActionProps = {
   type: ShopActions
-  payload: T_ProductOnCart
+  payload: T_ProductOnCart | { id: T_ProductID }
 }
 
 export type ShopContextProps = {
@@ -36,6 +38,7 @@ const products: T_Product[] = Array.from({ length: 15 }, (_, index: number) => {
 })
 
 export const initialShopState = {
+  id: null,
   cart: [] as unknown as T_ProductOnCart[],
   products
 }
