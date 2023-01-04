@@ -1,60 +1,119 @@
-import { initialShopState } from '@/contexts'
+import { initialShopState, T_ProductOnCart } from '@/contexts'
 import { shopReducer } from '@/reducers'
 import { ShopActions } from '@/reducers/shop-reducer'
-import { T_Product } from '@/types'
+import { cleanup } from '@testing-library/react'
 
-const product: T_Product = {
+afterEach(cleanup)
+
+const productOnCart: T_ProductOnCart = {
   id: 0,
   name: '',
   price: 0,
-  imageUrl: ''
+  imageUrl: '',
+  quantity: 1
 }
 
 function addToCartTest() {
-  const payload = {
-    ...product,
-    quantity: 1
-  }
-
   const action = {
     type: ShopActions.ADD_TO_CART,
-    payload
+    payload: productOnCart
   }
 
   const updatedState = shopReducer(initialShopState, action)
 
-  expect(updatedState).toEqual({
+  const expectedUpdatedState = {
     ...initialShopState,
-    cart: [payload]
-  })
+    cart: [productOnCart]
+  }
+
+  expect(updatedState).toEqual(expectedUpdatedState)
 }
 
 function removeFromCartTest() {
-  const payload = {
-    ...product,
-    quantity: 1
-  }
-
   const state = {
     ...initialShopState,
-    cart: [payload]
+    cart: [productOnCart]
   }
 
   const action = {
     type: ShopActions.REMOVE_FROM_CART,
-    payload
+    payload: productOnCart
   }
 
   const updatedState = shopReducer(state, action)
 
-  expect(updatedState).toEqual({
+  const expectedUpdatedState = {
     ...initialShopState,
     cart: []
-  })
+  }
+
+  expect(updatedState).toEqual(expectedUpdatedState)
+}
+
+function incrementItemQuantityTest() {
+  const state = {
+    ...initialShopState,
+    cart: [productOnCart]
+  }
+
+  const action = {
+    type: ShopActions.INCREMENT_ITEM_QUANTITY,
+    payload: productOnCart
+  }
+
+  const updatedState = shopReducer(state, action)
+
+  const expectedUpdatedState = {
+    ...initialShopState,
+    cart: [
+      {
+        ...productOnCart,
+        quantity: 2
+      }
+    ]
+  }
+
+  expect(updatedState).toEqual(expectedUpdatedState)
+}
+
+function decrementItemQuantityTest() {
+  const state = {
+    ...initialShopState,
+    cart: [
+      {
+        ...productOnCart,
+        quantity: 2
+      }
+    ]
+  }
+
+  const action = {
+    type: ShopActions.DECREMENT_ITEM_QUANTITY,
+    payload: productOnCart
+  }
+
+  const updatedState = shopReducer(state, action)
+
+  const expectedUpdatedState = {
+    ...initialShopState,
+    cart: [productOnCart]
+  }
+
+  expect(updatedState).toEqual(expectedUpdatedState)
 }
 
 describe('Shop reducer', () => {
   it('should update cart in state when add to cart', addToCartTest)
 
   it('should update cart in state when remove from cart', removeFromCartTest)
+
+  it(
+    'should increment a specific item quantity in cart',
+    incrementItemQuantityTest
+  )
+
+  it(
+    'should decrement a specific item quantity in cart',
+    decrementItemQuantityTest
+  )
 })
