@@ -33,9 +33,7 @@ const {
 
 export function Header() {
   const router = useRouter()
-  const {
-    state: { cart }
-  } = useShop()
+  const { cart } = useShop()
   const cartLength = cart.length
 
   const handleGoToPath = (path: string) => () => {
