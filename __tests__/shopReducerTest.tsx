@@ -30,18 +30,14 @@ function addToCartTest() {
 }
 
 function removeFromCartTest() {
-  const state = {
-    ...initialShopState,
-    cart: [
-      {
-        ...product,
-        quantity: 1
-      }
-    ]
+  const payload = {
+    ...product,
+    quantity: 1
   }
 
-  const payload = {
-    id: product.id
+  const state = {
+    ...initialShopState,
+    cart: [payload]
   }
 
   const action = {
