@@ -12,27 +12,30 @@ export enum ShopActions {
   'DECREMENT_ITEM_QUANTITY' = 'DECREMENT_ITEM_QUANTITY'
 }
 
-export function shopReducer(state: ShopStateProps, action: ShopActionProps) {
-  switch (action.type) {
+export function shopReducer(
+  state: ShopStateProps,
+  { type, payload }: ShopActionProps
+): ShopStateProps {
+  switch (type) {
     case ShopActions.ADD_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, action.payload]
+        cart: [...state.cart, payload]
       }
     case ShopActions.REMOVE_FROM_CART:
       return {
         ...state,
-        cart: removeFromCart(state.cart, action.payload.id)
+        cart: removeFromCart(state.cart, payload.id)
       }
     case ShopActions.INCREMENT_ITEM_QUANTITY:
       return {
         ...state,
-        cart: incrementItemQuantity(state.cart, action.payload.id)
+        cart: incrementItemQuantity(state.cart, payload.id)
       }
     case ShopActions.DECREMENT_ITEM_QUANTITY:
       return {
         ...state,
-        cart: decrementItemQuantity(state.cart, action.payload.id)
+        cart: decrementItemQuantity(state.cart, payload.id)
       }
     default:
       return state
