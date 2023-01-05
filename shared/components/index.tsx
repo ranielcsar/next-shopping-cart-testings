@@ -1,4 +1,7 @@
 export { Header } from './Header'
 export { Image } from './Image'
+export { Card } from './Card'
+export { ProductCardOnCart } from './ProductCardOnCart'
 export { ProductCard } from './ProductCard'
 export { ProductList } from './ProductList'
+export { CartList } from './CartList'
