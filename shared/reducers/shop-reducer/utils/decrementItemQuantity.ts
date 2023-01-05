@@ -10,8 +10,6 @@ export function decrementItemQuantity(
     if (product.id === id) {
       const newQuantity = product.quantity - 1
 
-      if (newQuantity === 0) return
-
       return {
         ...product,
         quantity: newQuantity
