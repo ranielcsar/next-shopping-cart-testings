@@ -1,1 +1,1 @@
-export { shopReducer } from './shop-reducer'
+export * from './shop-reducer'
