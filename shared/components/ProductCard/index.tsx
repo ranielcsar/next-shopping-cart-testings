@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import CartIcon from '@/assets/shopping-cart.svg'
-import { Image } from '@/components'
+import { Card, Image } from '@/components'
 import { T_Product } from '@/types'
 import { convertToMonetaryValue } from '@/utils'
 
@@ -22,7 +22,7 @@ const {
 
 export function ProductCard({ product, onAddClick }: ProductCardProps) {
   return (
-    <div className={container}>
+    <Card className={container}>
       <Image
         src={product.imageUrl}
         alt={`Image of ${product.name}`}
@@ -41,6 +41,6 @@ export function ProductCard({ product, onAddClick }: ProductCardProps) {
         <span className={add_button_label}>Adicionar</span>
         <Image src={CartIcon} alt="cart icon" width={30} height={30} />
       </button>
-    </div>
+    </Card>
   )
 }

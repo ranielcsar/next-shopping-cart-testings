@@ -1,17 +1,8 @@
 .container {
-  border-radius: 8px;
-
   display: grid;
   grid-template-rows: 2fr 0.8fr 0.5fr;
   grid-row-gap: 1rem;
   align-items: center;
-  color: #1D222B;
-
-  box-shadow:
-    0 0 1px #B2B2B2CC,
-    0 0 2px #B2B2B2AA,
-    0 0 4px #B2B2B288,
-    0 0 8px #B2B2B255;
 }
 
 .image {
