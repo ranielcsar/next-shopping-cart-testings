@@ -1,6 +1,5 @@
 import styles from './styles.module.css'
-import logo from '@/assets/logo.svg'
-import CartIcon from '@/assets/shopping-cart.svg'
+import { Logo, CartIcon } from '@/assets'
 import { Image } from '@/components'
 import { useShop } from '@/hooks'
 import { useRouter } from 'next/router'
@@ -44,7 +43,7 @@ export function Header() {
     <header className={main_container}>
       <section className={container}>
         <Image
-          src={logo}
+          src={Logo}
           alt="Shopping Cart Basket Logo"
           className={shopping_logo}
         />
