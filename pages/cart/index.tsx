@@ -1,4 +1,4 @@
-import { CartList } from '@/components'
+import { CartList, TotalValueCard } from '@/components'
 import { useShop } from '@/hooks'
 import { ShopActions } from '@/reducers'
 import { MainTemplate } from '@/templates'
@@ -28,6 +28,8 @@ export default function Cart() {
         handleDecrementQuantity={handleDecrementQuantity}
         handleIncrementQuantity={handleIncrementQuantity}
       />
+
+      <TotalValueCard />
     </MainTemplate>
   )
 }
