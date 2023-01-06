@@ -1,4 +1,4 @@
-import { ShopStateProps, T_ProductID } from '@/contexts'
+import { ShopStateProps, T_ProductID } from '@/types'
 
 export function incrementItemQuantity(
   cart: ShopStateProps['cart'],
