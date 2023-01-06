@@ -1,0 +1,18 @@
+.container {
+  padding: 20px 35px;
+  position: fixed;
+  top: 8rem;
+  right: 10rem;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  border: 1px solid var(--gray);
+  background-color: white;
+}
+
+.text_value {
+  color: var(--accent);
+  margin-left: 10px;
+}
