@@ -1,4 +1,4 @@
-import { ShopStateProps, T_ProductID } from '@/contexts'
+import { ShopStateProps, T_ProductID } from '@/types'
 
 export function decrementItemQuantity(
   cart: ShopStateProps['cart'],
@@ -8,7 +8,9 @@ export function decrementItemQuantity(
 
   const newCart = cartCopy.map((product) => {
     if (product.id === id) {
-      const newQuantity = product.quantity - 1
+      let newQuantity = product.quantity - 1
+
+      if (newQuantity <= 0) newQuantity = 0
 
       return {
         ...product,
