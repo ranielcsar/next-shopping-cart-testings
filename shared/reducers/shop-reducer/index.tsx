@@ -3,7 +3,7 @@ import {
   incrementItemQuantity,
   decrementItemQuantity
 } from './utils'
-import { ShopActionProps, ShopStateProps } from '@/contexts'
+import { ShopActionProps, ShopStateProps } from '@/types'
 
 export enum ShopActions {
   'ADD_TO_CART' = 'ADD_TO_CART',
