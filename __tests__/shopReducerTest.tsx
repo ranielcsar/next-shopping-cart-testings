@@ -103,6 +103,32 @@ function decrementItemQuantityTest() {
   expect(updatedState).toEqual(expectedUpdatedState)
 }
 
+function removeFromCartIfQuantityIsZeroTest() {
+  const state = {
+    ...initialShopState,
+    cart: [
+      {
+        ...product,
+        quantity: 1
+      }
+    ]
+  }
+
+  const action = {
+    type: ShopActions.DECREMENT_ITEM_QUANTITY,
+    payload: product
+  }
+
+  const updatedState = shopReducer(state, action)
+
+  const expectedUpdatedState = {
+    ...initialShopState,
+    cart: []
+  }
+
+  expect(updatedState).toEqual(expectedUpdatedState)
+}
+
 describe('Shop reducer', () => {
   it('should update cart in state when add to cart', addToCartTest)
 
@@ -116,5 +142,10 @@ describe('Shop reducer', () => {
   it(
     'should decrement a specific item quantity in cart',
     decrementItemQuantityTest
+  )
+
+  it(
+    'should remove item from cart when quantity is zero',
+    removeFromCartIfQuantityIsZeroTest
   )
 })
