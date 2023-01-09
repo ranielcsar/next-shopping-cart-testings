@@ -13,7 +13,7 @@ export function TotalValueCard() {
   )
 
   const totalValue = individualProductValues.reduce(
-    (acc, actual) => acc + actual,
+    (previousValue, actualValue) => previousValue + actualValue,
     0
   )
 
