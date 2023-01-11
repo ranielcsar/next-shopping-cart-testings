@@ -42,11 +42,13 @@ export function Header() {
   return (
     <header className={main_container}>
       <section className={container}>
-        <Image
-          src={Logo}
-          alt="Shopping Cart Basket Logo"
-          className={shopping_logo}
-        />
+        <button onClick={handleGoToPath('/')}>
+          <Image
+            src={Logo}
+            alt="Shopping Cart Basket Logo"
+            className={shopping_logo}
+          />
+        </button>
 
         <nav className={menu}>
           <ul className={menu_items}>
