@@ -6,11 +6,11 @@ export function decrementItemQuantity(
 ) {
   const cartCopy = cart.slice()
 
-  const updatedCart = cartCopy.map((product) => {
+  const newCart = cartCopy.map((product) => {
     if (product.id === id) {
       let newQuantity = product.quantity - 1
 
-      if (newQuantity <= 0) newQuantity = 0
+      if (newQuantity <= 0) newQuantity = 1
 
       return {
         ...product,
@@ -20,8 +20,6 @@ export function decrementItemQuantity(
 
     return product
   })
-
-  const newCart = updatedCart.filter((item) => item.quantity !== 0)
 
   return newCart
 }
