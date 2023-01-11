@@ -7,6 +7,7 @@ export type ProductCardOnCartProps = {
   product: T_Product
   onDecrementQuantity: () => void
   onIncrementQuantity: () => void
+  onRemoveFromCart: () => void
 }
 
 const {
@@ -19,13 +20,15 @@ const {
   action_buttons,
   action_button,
   action_button_label,
+  delete_button,
   quantity
 } = styles
 
 export function ProductCardOnCart({
   product,
   onDecrementQuantity,
-  onIncrementQuantity
+  onIncrementQuantity,
+  onRemoveFromCart
 }: ProductCardOnCartProps) {
   return (
     <Card className={container}>
@@ -36,6 +39,10 @@ export function ProductCardOnCart({
         width={100}
         height={100}
       />
+
+      <button className={delete_button} onClick={onRemoveFromCart}>
+        <span>✖</span>
+      </button>
 
       <section className={infos}>
         <h1 className={title}>{product.name}</h1>
