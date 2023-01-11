@@ -20,7 +20,9 @@ export function TotalValueCard() {
   return (
     <Card className={container}>
       <span>Total:</span>
-      <p className={text_value}>{convertToMonetaryValue(totalValue)}</p>
+      <strong className={text_value}>
+        {convertToMonetaryValue(totalValue)}
+      </strong>
     </Card>
   )
 }

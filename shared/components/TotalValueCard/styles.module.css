@@ -1,8 +1,8 @@
 .container {
   padding: 20px 35px;
   position: fixed;
-  top: 8rem;
-  right: 10rem;
+  top: 85%;
+  right: auto;
   width: max-content;
   display: flex;
   align-items: center;
@@ -10,6 +10,7 @@
   font-size: 1.5rem;
   border: 1px solid var(--gray);
   background-color: white;
+  margin: auto;
 }
 
 .text_value {
