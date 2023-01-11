@@ -1,6 +1,5 @@
 import { initialShopState } from '@/contexts'
-import { shopReducer } from '@/reducers'
-import { ShopActions } from '@/reducers/shop-reducer'
+import { shopReducer, ShopActions } from '@/reducers'
 import { T_Product } from '@/types'
 import { cleanup } from '@testing-library/react'
 
