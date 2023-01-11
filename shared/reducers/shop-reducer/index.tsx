@@ -1,7 +1,8 @@
 import {
   removeFromCart,
   incrementItemQuantity,
-  decrementItemQuantity
+  decrementItemQuantity,
+  addItemToCart
 } from './utils'
 import { ShopActionProps, ShopStateProps } from '@/types'
 
@@ -16,26 +17,36 @@ export function shopReducer(
   state: ShopStateProps,
   { type, payload }: ShopActionProps
 ): ShopStateProps {
+  const { cart } = state
+  const product = payload
+
+  const {
+    ADD_TO_CART,
+    REMOVE_FROM_CART,
+    INCREMENT_ITEM_QUANTITY,
+    DECREMENT_ITEM_QUANTITY
+  } = ShopActions
+
   switch (type) {
-    case ShopActions.ADD_TO_CART:
+    case ADD_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, payload]
+        cart: addItemToCart(cart, product)
       }
-    case ShopActions.REMOVE_FROM_CART:
+    case REMOVE_FROM_CART:
       return {
         ...state,
-        cart: removeFromCart(state.cart, payload.id)
+        cart: removeFromCart(cart, product.id)
       }
-    case ShopActions.INCREMENT_ITEM_QUANTITY:
+    case INCREMENT_ITEM_QUANTITY:
       return {
         ...state,
-        cart: incrementItemQuantity(state.cart, payload.id)
+        cart: incrementItemQuantity(cart, product.id)
       }
-    case ShopActions.DECREMENT_ITEM_QUANTITY:
+    case DECREMENT_ITEM_QUANTITY:
       return {
         ...state,
-        cart: decrementItemQuantity(state.cart, payload.id)
+        cart: decrementItemQuantity(cart, product.id)
       }
     default:
       return state
