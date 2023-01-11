@@ -1,4 +1,4 @@
-import { ShopStateProps, T_ProductID } from '@/contexts'
+import { ShopStateProps, T_ProductID } from '@/types'
 
 export function removeFromCart(cart: ShopStateProps['cart'], id: T_ProductID) {
   const cartCopy = cart.slice()
